@@ -19,6 +19,7 @@ set_header_labels <- function(x, ...){
   if( !inherits(x, "flextable") ) stop("set_header_labels supports only flextable objects.")
 
   args <- list(...)
+  args <- if(is.list(args[[1]])) args[[1]] else args
   if( nrow(x$header$dataset) < 1 )
     stop("there is no header row to be replaced")
 
